@@ -37,6 +37,18 @@ export class PostAddEditComponent implements OnInit {
 
     ngOnInit(): void {}
 
+    onFileChange(event: Event) {
+        // const target = event.target as HTMLInputElement;
+        // const file = (target.files as FileList)[0];
+        const file: File = ((event.target as HTMLInputElement).files as FileList)[0];
+        const reader = new FileReader();
+
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+            this.image?.setValue(event?.target?.result as string);
+        };
+    }
+
     createPost(formData: FormGroup) {
         const post: Post = {
             id: uuidv4(),

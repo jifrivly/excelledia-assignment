@@ -3,7 +3,7 @@
         {{ post.name }}
         <span class="text-right">{{ post.updatedAt | date: "short" }}</span>
     </div>
-    <img class="card-img-top" [src]="post.image" alt="Post image" />
+    <img class="card-img-top p-3" [src]="post.image" alt="Post image" />
     <div class="card-body">
         <p>{{ post.id }}</p>
         <p class="card-text">{{ post.content }}</p>

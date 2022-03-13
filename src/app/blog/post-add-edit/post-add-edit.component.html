@@ -35,8 +35,8 @@
                             id="post-image"
                             placeholder="Select the post image"
                             aria-describedby="post-image-help"
-                            accept="image"
-                            formControlName="image"
+                            accept="image/*"
+                            (change)="onFileChange($event)"
                         />
                         <div *ngIf="image?.touched && image?.errors" class="text-danger">
                             <small *ngIf="image?.hasError('required')">Image is required</small>
