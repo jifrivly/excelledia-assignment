@@ -1,0 +1,15 @@
+<div>
+    <form (ngSubmit)="addComment(comment)" #form="ngForm">
+        <div class="form-group">
+            <input
+                type="text"
+                [(ngModel)]="comment"
+                class="form-control"
+                name="comment-input-id"
+                id="comment-input-id"
+                placeholder="Input your comment"
+            />
+        </div>
+        <button type="submit" class="btn btn-sm btn-outline-primary">Comment</button>
+    </form>
+</div>

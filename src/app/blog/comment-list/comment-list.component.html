@@ -1,0 +1,11 @@
+<app-comment-add-edit
+    [postId]="postId"
+    [parentCommentId]="parentId"
+    (commentCUEvent)="commentUpdated($event)"
+></app-comment-add-edit>
+<div *ngFor="let comment of comments">
+    <app-comment-view [comment]="comment" (deleteEvent)="commentUpdated()"></app-comment-view>
+    <div class="ps-3">
+        <app-comment-list [postId]="postId" [parentId]="comment.id"></app-comment-list>
+    </div>
+</div>

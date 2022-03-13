@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-body">
+        <!-- <small class="text-muted">id : {{ comment.id }}</small> <br />
+        <small class="text-muted">post id : {{ comment.postId }}</small> <br />
+        <small class="text-muted">parent comment id : {{ comment.parentCommentId }}</small> <br /> -->
+        <small> {{ comment.updatedAt | date: 'short'}} </small>
+        <p class="card-text">{{ comment.content }}</p>
+        <button class="btn btn-sm btn-outline-primary" (click)="likeComment(comment.id)">
+            {{ comment.likes }} Like
+        </button>
+        <button class="btn btn-sm btn-outline-danger" (click)="deleteComment(comment.id)">
+            Delete
+        </button>
+    </div>
+</div>
