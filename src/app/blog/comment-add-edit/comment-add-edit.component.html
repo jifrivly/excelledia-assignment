@@ -10,6 +10,6 @@
                 placeholder="Input your comment"
             />
         </div>
-        <button type="submit" class="btn btn-sm btn-outline-primary">Comment</button>
+        <button type="submit" class="btn btn-sm btn-outline-primary" [disabled]="!comment">Comment</button>
     </form>
 </div>
