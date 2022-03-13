@@ -1,7 +1,18 @@
-<p>Blogging Component</p>
 <app-post-add-edit></app-post-add-edit>
+<br />
+<div class="text-center">
+    <h4>Posts</h4>
+    <div *ngIf="postService.postArray.length < 1" class="text-danger" style="font-size: large">No posts found</div>
+</div>
 
-<div *ngFor="let post of postService.postArray">
-    <!-- {{ post | json }} -->
-    <app-post-view [post]="post"></app-post-view>
+<div class="row">
+    <div class="col col-12 col-md-2"></div>
+    <div class="col col-12 col-md-8">
+        <div *ngFor="let post of postService.postArray; let i = index">
+            <!-- {{ post | json }} -->
+            <app-post-view [post]="post"></app-post-view>
+            <br />
+        </div>
+    </div>
+    <div class="col col-12 col-md-2"></div>
 </div>
