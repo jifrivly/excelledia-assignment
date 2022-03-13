@@ -1,19 +1,3 @@
-<!-- <mat-card fxLayout="row" fxLayoutAlign="center center" style="border: 1px solid sienna;">
-    <mat-card-header>
-        <mat-card-title>{{ heading }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Input</mat-label>
-            <input matInput />
-        </mat-form-field>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Submit</button>
-    </mat-card-actions>
-</mat-card> -->
-
 <div class="row">
     <div class="col col-12 col-md-2"></div>
     <div class="col col-12 col-md-8">
@@ -23,7 +7,7 @@
             </div>
             <div class="card-body">
                 <form [formGroup]="postForm" (ngSubmit)="createPost(postForm)">
-                    <div class="form-group">
+                    <div class="form-group pb-1">
                         <label for="post-name"> Name </label>
                         <input
                             type="text"
@@ -34,12 +18,14 @@
                             aria-describedby="post-name-help"
                             formControlName="name"
                         />
-                        <small id="post-name-help" class="text-muted">
-                            Post name will be shown as heading
-                        </small>
+                        <small id="post-name-help" class="text-muted"> Post name will be shown as heading </small>
+                        <div *ngIf="name?.touched && name?.errors" class="text-danger">
+                            <small *ngIf="name?.hasError('required')">Name is required</small>
+                            <small *ngIf="name?.hasError('minlength')">Name should be minimum 5 characters</small>
+                            <small *ngIf="name?.hasError('maxlength')">Name should be less than 16 characters</small>
+                        </div>
                     </div>
-                    <br />
-                    <div class="form-group">
+                    <div class="form-group pb-1">
                         <label for="post-image">Image</label>
                         <br />
                         <input
@@ -52,25 +38,30 @@
                             accept="image"
                             formControlName="image"
                         />
-                        <!-- <small id="post-image-help" class="form-text text-muted">
-                            Selected image will be shown in post
-                        </small> -->
+                        <div *ngIf="image?.touched && image?.errors" class="text-danger">
+                            <small *ngIf="image?.hasError('required')">Image is required</small>
+                        </div>
                     </div>
-                    <br />
-                    <div class="form-group">
+                    <div class="form-group pb-1">
                         <label for="description">Description</label>
                         <textarea
                             class="form-control"
                             name="description"
                             id="description"
-                            rows="3"
+                            rows="2"
                             formControlName="description"
                         ></textarea>
+                        <div *ngIf="description?.touched && description?.errors" class="text-danger">
+                            <small *ngIf="description?.hasError('required')">Description is required</small>
+                            <small *ngIf="description?.hasError('minlength')">
+                                Description should be minimum 5 characters
+                            </small>
+                            <small *ngIf="description?.hasError('maxlength')">
+                                Description should be less than 251 characters
+                            </small>
+                        </div>
                     </div>
-                    <br />
-                    <button type="submit" class="btn btn-primary">
-                        Create
-                    </button>
+                    <button type="submit" class="btn btn-primary" [disabled]="postForm.invalid">Create</button>
                 </form>
             </div>
         </div>
