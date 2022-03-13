@@ -4,6 +4,7 @@ export interface IPost {
     content: string;
     image: string;
     likes: number;
+    updatedAt: Date;
 }
 
 export class Post implements IPost {
@@ -12,6 +13,7 @@ export class Post implements IPost {
         public name: string,
         public content: string,
         public image: string,
-        public likes: number
+        public likes: number,
+        public updatedAt: Date
     ) {}
 }

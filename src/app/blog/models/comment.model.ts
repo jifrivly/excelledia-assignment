@@ -3,6 +3,7 @@ export interface IComment {
     content: string;
     postId: string;
     likes: number;
+    updatedAt: Date;
     parentCommentId?: string;
 }
 
@@ -12,6 +13,7 @@ export class Comment implements IComment {
         public content: string,
         public postId: string,
         public likes: number,
+        public updatedAt: Date,
         public parentCommentId?: string
     ) {}
 }
