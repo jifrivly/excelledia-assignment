@@ -1,0 +1,7 @@
+<h4>
+    {{ post.name }}
+</h4>
+{{ post | json }}
+
+<button class="btn btn-primary" (click)="likePost(post.id)">Like</button>
+<button class="btn btn-danger" (click)="deletePost(post.id)">Delete</button>

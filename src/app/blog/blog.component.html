@@ -1,0 +1,7 @@
+<p>Blogging Component</p>
+<app-post-add-edit></app-post-add-edit>
+
+<div *ngFor="let post of postService.postArray">
+    <!-- {{ post | json }} -->
+    <app-post-view [post]="post"></app-post-view>
+</div>

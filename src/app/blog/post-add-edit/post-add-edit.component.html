@@ -1,0 +1,79 @@
+<!-- <mat-card fxLayout="row" fxLayoutAlign="center center" style="border: 1px solid sienna;">
+    <mat-card-header>
+        <mat-card-title>{{ heading }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Input</mat-label>
+            <input matInput />
+        </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>Submit</button>
+    </mat-card-actions>
+</mat-card> -->
+
+<div class="row">
+    <div class="col col-12 col-md-2"></div>
+    <div class="col col-12 col-md-8">
+        <div class="card text-left">
+            <div class="card-header">
+                <h4 class="card-title">{{ heading }}</h4>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="postForm" (ngSubmit)="createPost(postForm)">
+                    <div class="form-group">
+                        <label for="post-name"> Name </label>
+                        <input
+                            type="text"
+                            name="post-name"
+                            id="post-name"
+                            class="form-control"
+                            placeholder="Input the post name"
+                            aria-describedby="post-name-help"
+                            formControlName="name"
+                        />
+                        <small id="post-name-help" class="text-muted">
+                            Post name will be shown as heading
+                        </small>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label for="post-image">Image</label>
+                        <br />
+                        <input
+                            type="file"
+                            class="form-control-file"
+                            name="post-image"
+                            id="post-image"
+                            placeholder="Select the post image"
+                            aria-describedby="post-image-help"
+                            accept="image"
+                            formControlName="image"
+                        />
+                        <!-- <small id="post-image-help" class="form-text text-muted">
+                            Selected image will be shown in post
+                        </small> -->
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea
+                            class="form-control"
+                            name="description"
+                            id="description"
+                            rows="3"
+                            formControlName="description"
+                        ></textarea>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-primary">
+                        Create
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col col-12 col-md-2"></div>
+</div>
